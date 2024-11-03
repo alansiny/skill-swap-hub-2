@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Developer</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="message.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <h2>Connect with Developer</h2>
+    <div id="developer-name"></div> <!-- Display developer's name here -->
+    
+    <form id="message-form">
+        <label for="idea">Your Idea:</label>
+        <textarea id="idea" name="idea" rows="4" placeholder="Describe your idea..."></textarea>
+
+        <label for="email">Email ID:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email">
+
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" placeholder="Enter your country">
+
+        <label for="deadline">Deadline:</label>
+        <input type="date" id="deadline" name="deadline">
+
+        <button type="submit">Send Message</button>
+    </form>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const developerName = urlParams.get("developer");
+        if (developerName) {
+            document.getElementById("developer-name").innerHTML = `<h3>: ${developerName}</h3>`;
+        }
+    
+        document.getElementById("message-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from actually submitting
+    
+            // Simulate sending message
+            setTimeout(() => {
+                window.location.href = "message-sent.html"; // Redirect to confirmation page
+            }, 500); // Delay to mimic form processing
+        });
+    </script>
+    
+</body>
+</html>
